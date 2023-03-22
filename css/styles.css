@@ -471,6 +471,7 @@ body {
   letter-spacing: 0.04em;
   color: var(--blue-text-color);
   background-color: var(--grey-cornflower);
+  box-shadow: 0;
 
   transition: color var(--transition-dur-func),
     background-color var(--transition-dur-func),
