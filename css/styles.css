@@ -116,6 +116,9 @@ body {
   display: flex;
   align-items: center;
 }
+.header-item {
+  position: relative;
+}
 
 .header-item:not(:last-child) {
   margin-right: 40px;
@@ -130,12 +133,32 @@ body {
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: var(--secondary-text-color);
+  transition: color var(--transition-dur-func);
 }
 
 .header-link:focus,
 .header-link:hover {
   color: var(--push-btn-portfolio);
 }
+.header-link::after {
+  content: " ";
+
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: block;
+  width: 100%;
+  height: 4px;
+  background-color: var(--push-btn-portfolio);
+  border-radius: 2px;
+  opacity: 0;
+  transition: opacity var(--transition-dur-func);
+}
+.header-link:hover::after,
+.header-link:focus::after {
+  opacity: 1;
+}
+
 .address {
   font-style: normal;
 
@@ -160,6 +183,7 @@ body {
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: var(--primiory-text-color);
+  transition: color var(--transition-dur-func);
 }
 .contacts-address:hover,
 .contacts-address:focus {
@@ -211,6 +235,7 @@ body {
   border: none;
 
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  transition: background-color var(--transition-dur-func);
 }
 .hero-btn:hover,
 .hero-btn:focus {
@@ -360,6 +385,7 @@ body {
   height: 40px;
   border-radius: 50%;
   background-color: var(--blue-text-color);
+  transition: background-color var(--transition-dur-func);
 }
 .social-list-link:hover,
 .social-list-link:focus {
@@ -405,19 +431,22 @@ body {
 
   border: 1px solid var(--grey-universal);
   border-radius: 4px;
+  transition: border var(--transition-dur-func);
 }
 .customers-list-link:hover,
 .customers-list-link:focus {
   border: 1px solid var(--push-btn-portfolio);
+}
+.customers-list-svg {
+  fill: var(--grey-universal);
+  transition: fill var(--transition-dur-func);
 }
 
 .customers-list-link:hover .customers-list-svg,
 .customers-list-link:focus .customers-list-svg {
   fill: var(--push-btn-portfolio);
 }
-.customers-list-svg {
-  fill: var(--grey-universal);
-}
+
 /*----------------- portfolio---------------- */
 
 .portfolio {
@@ -446,6 +475,10 @@ body {
   letter-spacing: 0.04em;
   color: var(--blue-text-color);
   background-color: var(--grey-cornflower);
+
+  transition: color var(--transition-dur-func),
+    background-color var(--transition-dur-func),
+    border var(--transition-dur-func), box-shadow var(--transition-dur-func);
 }
 
 .filtr-btn:hover,
@@ -468,12 +501,38 @@ body {
 
 .works-link {
   display: block;
-  /* height: 500px; */
+  transition: box-shadow var(--transition-dur-func);
 }
 .works-link:hover,
 .works-link:focus {
   box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
     0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
+}
+.works-list-wraper {
+  position: relative;
+  overflow: hidden;
+}
+
+.overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  transform: translate(0, 100%);
+  transition: transform var(--transition-dur-func);
+
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: var(--grey-cornflower);
+  padding: 40px 32px;
+  background-color: var(--blue-text-color);
+}
+.works-link:hover .overlay,
+.works-link:focus .overlay {
+  transform: translate(0, 0);
 }
 .works-content {
   padding: 32px 16px;
@@ -558,6 +617,7 @@ body {
   border-radius: 50%;
 
   background-color: rgba(255, 255, 255, 0.1);
+  transition: background-color var(--transition-dur-func);
 }
 
 .footer-list-link:hover,
@@ -569,6 +629,7 @@ body {
 }
 
 /*------------- /footer -----------------*/
+
 /* ============= backdrop =============*/
 .backdrop {
   position: fixed;
