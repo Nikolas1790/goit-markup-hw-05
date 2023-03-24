@@ -140,7 +140,8 @@ body {
 .header-link:hover {
   color: var(--push-btn-portfolio);
 }
-.current {
+
+.header-item > .current {
   color: var(--push-btn-portfolio);
 }
 .current::after {
